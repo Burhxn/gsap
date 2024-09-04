@@ -3,7 +3,7 @@ var main = document.querySelector("#main")
 var image = document.querySelector("#image")
 
 
-main.addEventListener("mousemove", (dets) => {
+window.addEventListener("mousemove", (dets) => {
     gsap.to(cursor, {
         x: dets.x,
         y: dets.y,
@@ -37,3 +37,36 @@ image.addEventListener("mouseleave", (dets) => {
     })
 
 })
+
+var container= document.querySelector(".text")
+// var tl =gsap.timeline({repeat:-1});
+
+
+window.addEventListener("wheel",(dets)=>{
+    if(dets.deltaY>0){
+        gsap.to(".text",{
+            transform : "translateX(-200%)",
+            duration : 4,
+            repeat :-1,
+            ease : "none",
+            // stagger :1
+        }) 
+        gsap.to(".text img",{
+            rotate : 180
+        })
+    }else{
+        gsap.to(".text",{
+            transform : "translateX(0%)",
+            duration : 4,
+            repeat :-1,
+            ease : "none",
+            
+        }) 
+        gsap.to(".text img",{
+            rotate : 0
+        })
+
+    }
+    
+})
+
